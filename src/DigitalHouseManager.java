@@ -56,4 +56,15 @@ public class DigitalHouseManager {
         Aluno novoAluno = new Aluno(nome, sobrenome, codigoDoAluno);
         alunos.add(novoAluno);
     }
+    
+    public void matricularCurso(Integer codigoDoCurso,Integer codigoDoAluno){
+        Curso codCurso = new Curso(codigoDoCurso);
+        Aluno codAluno = new Aluno(codigoDoAluno);
+        Matricula matricular = new Matricula(codAluno,codCurso);
+
+
+        matriculas.add(matricular);
+    }
+
+
 }

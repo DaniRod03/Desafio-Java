@@ -11,10 +11,11 @@ public class Curso {
     private Integer maxAlunos;
     private List<Aluno> listaAlunos = new ArrayList<>();
 
+
+    // Construtores
     public Curso(){
 
     }
-
     public Curso(String nome, Integer codigoDoCurso, ProfessorAdjunto professorAdjunto, ProfessorTitular professorTitular, Integer maxAlunos, List<Aluno> listaAlunos) {
         this.nome = nome;
         this.codigoDoCurso = codigoDoCurso;
@@ -23,13 +24,17 @@ public class Curso {
         this.maxAlunos = maxAlunos;
         this.listaAlunos = listaAlunos;
     }
-
     public Curso(String nome, Integer codigoDoCurso, Integer maxAlunos) {
         this.nome = nome;
         this.codigoDoCurso = codigoDoCurso;
         this.maxAlunos = maxAlunos;
     }
+    public Curso(Integer codigoDoCurso) {
+        this.codigoDoCurso = codigoDoCurso;
+    }
 
+
+    // GET/SET
     public String getNome() {
         return nome;
     }
@@ -54,7 +59,18 @@ public class Curso {
     public void setProfessorTitular(ProfessorTitular professorTitular) {
         this.professorTitular = professorTitular;
     }
-
+    public Integer getMaxAlunos() {
+        return maxAlunos;
+    }
+    public void setMaxAlunos(Integer maxAlunos) {
+        this.maxAlunos = maxAlunos;
+    }
+    public List<Aluno> getListaAlunos() {
+        return listaAlunos;
+    }
+    public void setListaAlunos(List<Aluno> listaAlunos) {
+        this.listaAlunos = listaAlunos;
+    }
 
     public boolean adicionarUmAluno(Aluno umAluno){
         if (listaAlunos.size() < maxAlunos){
@@ -64,6 +80,7 @@ public class Curso {
         }
         return false;
     }
+
 
     public void removerAlunos(Aluno umAluno){
         listaAlunos.remove(umAluno);

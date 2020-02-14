@@ -11,6 +11,11 @@ public class Matricula {
         this.curso = curso;
         this.data = new Date();
     }
+
+    public Matricula(Aluno aluno, Curso curso) {
+        this.aluno = aluno;
+        this.curso = curso;
+    }
 }
 
 

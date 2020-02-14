@@ -13,6 +13,10 @@ public class Aluno {
         this.codigoDoAluno = codigoDoAluno;
     }
 
+    public Aluno(Integer codigoDoAluno) {
+        this.codigoDoAluno = codigoDoAluno;
+    }
+
     public String getNome() {
         return nome;
     }
