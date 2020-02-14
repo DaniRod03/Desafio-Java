@@ -9,7 +9,7 @@ public class Curso {
     private ProfessorAdjunto professorAdjunto;
     private ProfessorTitular professorTitular;
     private Integer maxAlunos;
-    private List<Aluno> listaAlunos;
+    private List<Aluno> listaAlunos = new ArrayList<>();
 
     public Curso(){
 
@@ -22,6 +22,12 @@ public class Curso {
         this.professorTitular = professorTitular;
         this.maxAlunos = maxAlunos;
         this.listaAlunos = listaAlunos;
+    }
+
+    public Curso(String nome, Integer codigoDoCurso, Integer maxAlunos) {
+        this.nome = nome;
+        this.codigoDoCurso = codigoDoCurso;
+        this.maxAlunos = maxAlunos;
     }
 
     public String getNome() {
@@ -49,7 +55,6 @@ public class Curso {
         this.professorTitular = professorTitular;
     }
 
-    List<Matricula> listaDeMatriculas = new ArrayList<>();
 
     public boolean adicionarUmAluno(Aluno umAluno){
         if (listaAlunos.size() < maxAlunos){

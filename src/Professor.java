@@ -6,6 +6,11 @@ public class Professor {
     private Integer tempoDeCasa;
     private Integer codigoDeProfessor;
 
+    public Professor(String nome, String sobrenome, Integer codigoDeProfessor) {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.codigoDeProfessor = codigoDeProfessor;
+    }
 
     public Professor(String nome, String sobrenome, Integer tempoDeCasa, Integer codigoDeProfessor) {
         this.nome = nome;
