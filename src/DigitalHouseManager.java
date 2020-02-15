@@ -1,3 +1,4 @@
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,15 +57,52 @@ public class DigitalHouseManager {
         Aluno novoAluno = new Aluno(nome, sobrenome, codigoDoAluno);
         alunos.add(novoAluno);
     }
-    
-    public void matricularCurso(Integer codigoDoCurso,Integer codigoDoAluno){
-        Curso codCurso = new Curso(codigoDoCurso);
-        Aluno codAluno = new Aluno(codigoDoAluno);
-        Matricula matricular = new Matricula(codAluno,codCurso);
 
+    public void matricularAluno (Integer codigoAluno, Integer codigoCurso){
+        Curso cursoAlvo;
+        Aluno alunoAlvo;
 
-        matriculas.add(matricular);
+        for (Curso curso : cursos) {
+            if (curso.equals(codigoCurso)) {
+                cursoAlvo = curso;
+                for (Aluno aluno : alunos) {
+                    if (aluno.equals(codigoAluno)) {
+                        alunoAlvo = aluno;
+                        matriculas.add(new Matricula(alunoAlvo, cursoAlvo));
+                        System.out.println("Matricula realizada com sucesso.");
+                    } else {
+                        System.out.println("Curso ou Aluno Inexistentes!");
+                    }
+                }
+            }
+        }
     }
 
+    public void alocarProfessores (Integer codigoCurso, Integer codigoProfessor, Integer
+            codigoProfessorAdjunto){
+        ProfessorTitular profTitular;
+        ProfessorAdjunto profAdj;
+        Curso cursoAux;
+
+        for (Professor professor : professors) {
+            if (professor.equals(codigoProfessor)) {
+                profTitular = (ProfessorTitular) professor;
+
+                for (Professor professor2 : professors) {
+                    if (professor2.equals(codigoProfessorAdjunto)) {
+                        profAdj = (ProfessorAdjunto) professor2;
+
+                        for (Curso curso : cursos) {
+                            if (curso.equals(codigoCurso)) {
+                                cursoAux = curso;
+                                cursoAux.setProfessorAdjunto(profAdj);
+                                cursoAux.setProfessorTitular(profTitular);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
 }
